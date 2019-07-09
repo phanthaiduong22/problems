@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+bool compare(string x, string y)
+{
+    if (x.length() > y.length())
+        return 1;
+    else if (x.length() < y.length())
+        return 0;
+    else
+    {
+        int i = 0;
+        while (x[i] == y[i])
+            ;
+        {
+            i++;
+        }
+        if (x[i] > y[i])
+            return 1;
+        else
+            return 0;
+    }
+    return 0;
+}
+void insertionSort(vector<string> s, int n)
+{
+    string key;
+    int i, j;
+    for (i = 1; i < n; i++)
+    {
+        key = s[i];
+        j = i - 1;
+        while (j >= 0 && compare(s[j], key))
+        {
+            s[j + 1] = s[j];
+            j = j - 1;
+        }
+        s[j + 1] = key;
+    }
+}
+int main()
+{
+    freopen("bigsorting.inp","r",stdin);
+    freopen("bigsorting.out","w",stdout);
+    int n;
+    vector<string> s;
+    string x;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> x;
+        s.push_back(x);
+    }
+    insertionSort(s, n);
+    for (int i = 0; i < n; i++)
+        cout << s[i] << endl;
+}
