@@ -1,2 +1,2 @@
 # problems
-problems solving hackkerank
+problems solving hackerrank
